@@ -2,11 +2,26 @@
 function generate() {
   let password = "";
 
-  let length = document.getElementById("length").value;
-  let lowerCase = document.getElementById("lowercase").checked;
-  let upperCase = document.getElementById("uppercase").checked;
-  let symbol = document.getElementById("symbols").checked;
-  let number = document.getElementById("numbers").checked;
+  let length = prompt("How many characters would you like your password?");
+  console.log(length);
+  let lowerCase = confirm("Will this contain lowercase letters?");
+  console.log(lowerCase);
+  let upperCase = confirm("Will this contain uppercase letters?");
+  console.log(upperCase);
+  let symbol = confirm("Will this contain symbol?");
+  console.log(symbol);
+  let number = confirm("Will this contain numbers?");
+  console.log(number);
+
+  if (length < 8) {
+    alert("Password length must be atleast 8 characters Try again");
+    return;
+  }
+
+  if (length > 128) {
+    alert("Password length must be under 128 characters Try again");
+    return;
+  }
 
   if (lowerCase + upperCase + symbol + number <= 0) return;
 
